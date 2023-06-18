@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="14.312" timestamp="2023-06-11T17:43:14.446465" hostname="DESKTOP-82G08TI"><testcase classname="pytest.test_demo.TestDemo" name="test_features" time="8.233" /><testcase classname="pytest.test_login.TestLogin" name="test_demo" time="5.377"><failure message="assert False&#10; +  where False = &lt;method-wrapper '__eq__' of str object at 0x00000198E47B7830&gt;('https://www.opencart.com/index.php?route=cms/feature')&#10; +    where &lt;method-wrapper '__eq__' of str object at 0x00000198E47B7830&gt; = 'https://www.opencart.com/index.php?route=cms/demo'.__eq__&#10; +      where 'https://www.opencart.com/index.php?route=cms/demo' = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;88449240b993a64098e6e4e57236429f&quot;)&gt;.current_url&#10; +        where &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;88449240b993a64098e6e4e57236429f&quot;)&gt; = &lt;test_login.TestLogin object at 0x00000198E46335D0&gt;.driver">self = &lt;test_login.TestLogin object at 0x00000198E46335D0&gt;
+
+    def test_demo(self):
+        features = self.driver.find_element(By.LINK_TEXT,"Demo")
+        features.click()
+        expected = "https://www.opencart.com/index.php?route=cms/feature"
+&gt;       assert self.driver.current_url.__eq__(expected)
+E       assert False
+E        +  where False = &lt;method-wrapper '__eq__' of str object at 0x00000198E47B7830&gt;('https://www.opencart.com/index.php?route=cms/feature')
+E        +    where &lt;method-wrapper '__eq__' of str object at 0x00000198E47B7830&gt; = 'https://www.opencart.com/index.php?route=cms/demo'.__eq__
+E        +      where 'https://www.opencart.com/index.php?route=cms/demo' = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="88449240b993a64098e6e4e57236429f")&gt;.current_url
+E        +        where &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="88449240b993a64098e6e4e57236429f")&gt; = &lt;test_login.TestLogin object at 0x00000198E46335D0&gt;.driver
+
+pytest\test_login.py:13: AssertionError</failure></testcase></testsuite></testsuites>
